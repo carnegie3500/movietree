@@ -15,18 +15,12 @@
 				//메인메뉴 호버
 				$("div#header ul.mainMenu h2").hover(
 					function(){
-						$(this).next().slideDown(500);
-
-
+						$("div#header").animate({"height":"600px"},0);
+						$("div#header .mainMenu").css({"overflow":"visible"});
+						$(this).next().children().slideDown(100);
 					}
 				);
-
-
-
-
-
-
-			}
+		}
 	);
 	</script>
 </head>
