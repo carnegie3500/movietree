@@ -3,17 +3,24 @@ body{
   font-family: 'Noto Sans KR', sans-serif;
   text-align: center;
   /*! position: relative; */
+  /*! overflow-y: hidden; */
+}
+@media all and (min-width:700px) and (max-width:1980px){
+nav#wtitle{
+  
+  height: 100%;
 }
 div#wvideo {
   
   overflow: hidden;
   height: 944px;
-  /*! position: relative; */
   position: absolute;
   top: 0px;
   z-index: -1;
-  /*! margin-top: 85px; */
   max-width: 100%;
+}
+div#wvideo video img{
+  
 }
 div#header{
   
@@ -40,6 +47,9 @@ div#wheader{
   background-color: white;
   font-family: 'Noto Sans KR', sans-serif;
   overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 10000;
 } 
 
 div#header h1{
@@ -280,6 +290,7 @@ div#headerBottom div{
   margin: 0 auto;
   display: block;
   width: 1182px;
+  /*! position: absolute; */
 }
 div#headerBottom .wmenu li:nth-child(1):before {
   content:"";
@@ -310,16 +321,10 @@ div#headerBottom .wmenu li:nth-child(4):before {
   display: block;
 }
 div#headerBottom{
-  /*! display: none; */
-  /*! text-align: center; */
-  /*! display: inline-block; */
   margin: 0 auto;
-  /*! width: 852px; */
-  /*! height: 942px; */
-  /*! border: 1px solid aqua; */
   text-align: initial;
-  /*! display: block; */
   overflow: hidden;
+  margin-top: 114px;
 }
 div#headerBottom ul{
   
@@ -1037,4 +1042,4 @@ div#footer .sns li:nth-child(1):after{content:"";background:url(../img/ft_arr02.
 
 
 
-
+}
