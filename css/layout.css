@@ -2,18 +2,24 @@
 body{
   font-family: 'Noto Sans KR', sans-serif;
   text-align: center;
+  margin:0; padding:0; width:100%; height:100%;
   /*! position: relative; */
   /*! overflow-y: hidden; */
+}
+.box{
+  position: relative;
+  width:100%; height:100%;
 }
 @media all and (min-width:700px) and (max-width:1980px){
 nav#wtitle{
   
-  height: 100%;
+  min-height: 100%;
+  position: relative;
 }
 div#wvideo {
   
   overflow: hidden;
-  height: 944px;
+  min-height: 100%;
   position: absolute;
   top: 0px;
   z-index: -1;
@@ -26,11 +32,11 @@ div#header{
   
   margin: 0 auto;
   text-align: center;
-  width: 1180px;
+  max-width: 1180px;
   overflow: hidden;
   position: relative;
   /*! padding-top: 53px; */
-  border: 1px solid;
+  /*! border: 1px solid; */
   height: 112px;
   }
 video{
@@ -172,22 +178,22 @@ div#header .shop h2 a{
 }
 div#header .mainMenu>li:first-child{
   
-  width: 185px;
+  max-width: 185px;
 }
 div#header .mainMenu>li:nth-child(2){
-  width: 140px;
+  max-width: 140px;
 }
 div#header .mainMenu>li:nth-child(3){
-  width: 102px;
+  max-width: 102px;
 }
 div#header .mainMenu>li:nth-child(4){
-  width: 110px;
+  max-width: 110px;
 }
 div#header .mainMenu>li:nth-child(5){
-  width: 125px;
+  max-width: 125px;
 }
 div#header .mainMenu>li:nth-child(6){
-  width: 100px;
+  max-width: 100px;
 }
 div#header .mainMenu>li:last-child{
 position: absolute;
@@ -263,21 +269,26 @@ div#header .mainMenu > li.shop ul li{
 
 /*메인타이틀 하단*/
 
-
+  div#headerBottom > div{
+    
+  padding: 200px 0 0 0;
+  width: 1180px;
+  margin: 0 auto;
+  position: relative;
+  }
 
 div#headerBottom h2{
   
   font-size: 54px;
-  margin: 98px 0 43px;
+  margin: 0px 0 43px;
   color: #edecd0;
   font-weight: lighter;
-  display: block;
-  /*! margin: 0 auto; */
 }
 div#headerBottom div > p{
   font-size: 54px;
   color: #fffcfd;
   font-weight: lighter;
+  padding: 0;
 }
 div#headerBottom div p span{
   
@@ -285,12 +296,9 @@ div#headerBottom div p span{
   color: #fffcfd;
   font-weight: bolder;
 }
-div#headerBottom div{
+div#headerBottom .wmenu{
   
   margin: 0 auto;
-  display: block;
-  width: 1182px;
-  /*! position: absolute; */
 }
 div#headerBottom .wmenu li:nth-child(1):before {
   content:"";
@@ -321,31 +329,24 @@ div#headerBottom .wmenu li:nth-child(4):before {
   display: block;
 }
 div#headerBottom{
-  margin: 0 auto;
   text-align: initial;
   overflow: hidden;
-  margin-top: 114px;
+  position: absolute;
+  bottom: 0;
+  /*! width: 1180px; */
+  height: 100%;
+  width: 100%;
 }
 div#headerBottom ul{
   
   margin-top: 32px;
-  /*! width: 1200px; */
-  /*! border: 1px solid; */
   text-align: center;
 }
-div#headerBottom ul li{
+div#headerBottom  .wmenu ul li{
   
-  /*! float: left; */
-  /*! margin: 0 auto; */
-  /*! left: 50%; */
-  /*! position: relative; */
-  /*! left: 10%; */
-  /*! border: 1px solid; */
-  /*! text-align: center; */
-  /*! margin: 0 auto; */
+  padding: 0 25px;
   display: inline-block;
-  margin-right: 50px;
-  /*! color: white; */
+  margin-left: -4px;
 }
 div#headerBottom ul li h3{
   
@@ -360,25 +361,27 @@ div#headerBottom ul li h3 a{
   padding-top: 16px;
 }
 div#headerBottom div p{
-  clear: both;
+  /*! clear: both; */
 }
 div#headerBottom .rightSlide{
   
   position: fixed;
-  right: 19px;
   display: block;
-  top: 400px;
-  width: 0px;
+  /*! top: 0; */
+  right: 20px;
+  bottom: 50%;
+  margin-bottom: -128.5px;
+  z-index: 4;
 }
 div#headerBottom .rightSlide li{
   
   width: 13px;
   height: 13px;
-  border-radius: 50%;
   display: block;
   margin-bottom: 30px;
-  color: #000;
+  color: #f00;
   border: 1px solid;
+  border-radius: 50%;
 }
 div#headerBottom .rightSlide li a{
   
@@ -422,13 +425,14 @@ div#headerBottom i{
 }
 div#headerBottom .bounce{
    position: fixed;
-  bottom: 1rem;
+  bottom: 4rem;
   left: 50%;
   /*! margin-left:-20px; */
   width: 40px;
   height: 40px;
 background: #341d1d00;
    z-index: 10;
+   margin-left: -40px;
 }
 .bounce {
   animation: bounce 1.8s infinite;
@@ -473,13 +477,15 @@ background: #341d1d00;
 }
 }
 div#headerBottom >p{
-  /*! position: absolute */
+  position: absolute;
   text-align: center;
-  margin-top: 27px;
+  margin-top: 89px;
   padding: 17px 0 17px;
   color: wheat;
   background-color: #151010;
   opacity: 0.3;
+  width: 100%;
+  bottom: 0;
 }
 
 
@@ -488,7 +494,7 @@ div#content{
   /*! display: none; */
   max-width: 1920px;
   margin: 0 auto;
-  height: 925px;
+  height: 100%;
   /*! border: 1px solid #fff0; */
   background: #ece9de;
   overflow: hidden;
