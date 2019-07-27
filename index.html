@@ -12,8 +12,113 @@
         .box{ width:100%; height:100%; position:relative; color:#ffffff; color:black;}
     </style>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="js/scroll.js/"></script>
-    <script type="text/javascript" src="js/hover.js/"></script>
+    <script type="text/javascript">
+    	window.onload = function () {
+            var elm = ".box";
+            $(elm).each(function (index) {
+                // 개별적으로 Wheel 이벤트 적용
+                $(this).on("mousewheel DOMMouseScroll", function (e) {
+                    e.preventDefault();
+                    var delta = 0;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        delta = event.wheelDelta / 120;
+                        if (window.opera) delta = -delta;
+                    } 
+                    else if (event.detail)
+                        delta = -event.detail / 3;
+                    var moveTop = $(window).scrollTop();
+                    var elmSelecter = $(elm).eq(index);
+                    // 마우스휠을 위에서 아래로
+                    if (delta < 0) {
+                        if ($(elmSelecter).next() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).next().offset().top;
+                            }catch(e){}
+                        }
+                    // 마우스휠을 아래에서 위로
+                    } else {
+                        if ($(elmSelecter).prev() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).prev().offset().top;
+                            }catch(e){}
+                        }
+                    }
+                     
+                    // 화면 이동 0.8초(800)
+                    $("html,body").stop().animate({
+                        scrollTop: moveTop + 'px'
+                    }, {
+                        duration: 800, complete: function () {
+                        }
+                    });
+                });
+            });
+        }
+        $(document).ready(
+		function(){
+			 
+			//메인메뉴 호버
+			$("div#header").hover(
+				function(){
+					// alert(1);
+				    $("div#header").animate({"height":"630px"},0);
+					//$("div#header .mainMenu li ul").slideDown(0);
+					 // $("div#header").animate({"height":"400px"},0);
+				  		//  $("div#header .mainMenu").css({"overflow":"visible"});
+					//$("div#header .mainMenu > li:nth-child(-n+6)").hide().slideDown(0);
+					// $("div#header").css
+
+				},
+				function(){
+					//$("div#header .mainMenu li ul").slideUp(0);
+					$("div#header").animate({"height":"109px"},1000);
+				}
+			);
+			// $("div#header").mouseleave(
+			// 	function(){
+			// 		 $("div#header").animate({"height":"114px"},0);
+			// 	}
+			// );
+
+			
+
+			$("div#header .mainMenu>li").mouseenter(
+					function(){
+						n=0
+						if (n<5) {
+						n=$(this).attr("data-n");
+						 $("div#header .mainMenu > li:nth-child("+n+") span").show();
+						 $("div#header .mainMenu > li:nth-child("+n+")").siblings().children("span").hide();
+						 $("div#header .mainMenu > li:nth-child("+n+") h2 a").css("color","#68a12a");
+						 $("div#header .mainMenu > li:nth-child("+n+") h2").parent().siblings().children("h2").children("a").css("color","#585858");
+						 // $("div#header .mainMenu > li:nth-child("+n+")").siblings().children("span").css("");
+						 // $("div#header .mainMenu > li:nth-child("+n+") span").hide();
+						}
+					}
+			);
+			$("div#content ul li h3,div#content ul li h2")
+			$("div#content ul li").mouseenter(
+				function() {
+
+				}
+			);
+			$("div#content ul li").hide().css({"position":"relative","top":"50px"});
+			$(document).scroll(
+				function(){
+					if ($(window).scrollTop()>10){
+						$("div#content ul li:eq(2)").delay(1000).fadeIn(1200).css("position","relative").animate({"top":"50px"},500);
+						$("div#content ul li:eq(1)").delay(1100).fadeIn(1200).css("position","relative").animate({"top":"50px"},600);
+						$("div#content ul li:eq(0)").delay(1200).fadeIn(1200).css("position","relative").animate({"top":"50px"},700);
+
+					}		
+				}
+			);
+			}
+	);
+	
+    </script>
+	
 </head>
 <body>
     <nav id="wtitle" class="box">
