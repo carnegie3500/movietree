@@ -45,7 +45,8 @@
                         }
                     }
                      
-                    // 화면 이동 0.8초(800)
+                    
+                        // 화면 이동 0.8초(800)
                     $("html,body").stop().animate({
                         scrollTop: moveTop + 'px'
                     }, {
@@ -85,16 +86,19 @@
 
 			$("div#header .mainMenu>li").mouseenter(
 					function(){
-						n=0
-						if (n<5) {
+						n=0;
 						n=$(this).attr("data-n");
+						if (n<=6) {
+                            console.log(n);
 						 $("div#header .mainMenu > li:nth-child("+n+") span").show();
 						 $("div#header .mainMenu > li:nth-child("+n+")").siblings().children("span").hide();
 						 $("div#header .mainMenu > li:nth-child("+n+") h2 a").css("color","#68a12a");
 						 $("div#header .mainMenu > li:nth-child("+n+") h2").parent().siblings().children("h2").children("a").css("color","#585858");
+                         console.log(n);
 						 // $("div#header .mainMenu > li:nth-child("+n+")").siblings().children("span").css("");
 						 // $("div#header .mainMenu > li:nth-child("+n+") span").hide();
-						}
+						
+                        }
 					}
 			);
 			$("div#content ul li h3,div#content ul li h2")
@@ -103,18 +107,49 @@
 
 				}
 			);
-			$("div#content ul li").hide().css({"position":"relative","top":"50px"});
+			$("div#content ul li,div#company ul li").hide().css({"position":"relative","top":"50px"});
 			$(document).scroll(
 				function(){
-					if ($(window).scrollTop()>10){
-						$("div#content ul li:eq(2)").delay(1000).fadeIn(1200).css("position","relative").animate({"top":"50px"},500);
-						$("div#content ul li:eq(1)").delay(1100).fadeIn(1200).css("position","relative").animate({"top":"50px"},600);
-						$("div#content ul li:eq(0)").delay(1200).fadeIn(1200).css("position","relative").animate({"top":"50px"},700);
+                    var height = $(document).scrollTop();
+                    console.log(height);
+                    // function log(str){
+                    //   $('#log').text(str);
+                    // }
 
-					}		
+
+					if ($(window).scrollTop()>10){
+						$("div#content ul li:eq(0)").delay(1000).fadeIn(100).css("position","relative").animate({"top":"0px"},700);
+						$("div#content ul li:eq(1)").delay(1100).fadeIn(100).css("position","relative").animate({"top":"0px"},600);
+						$("div#content ul li:eq(2)").delay(1200).fadeIn(100).css("position","relative").animate({"top":"0px"},500);
+					}
+                    if ($(window).scrollTop()>10){
+                        $("div#company ul li:eq(0)").delay(1000).fadeIn(100).css("position","relative").animate({"top":"0px"},700);
+                        $("div#company ul li:eq(1)").delay(1100).fadeIn(100).css("position","relative").animate({"top":"0px"},600);
+                        $("div#company ul li:eq(2)").delay(1200).fadeIn(100).css("position","relative").animate({"top":"0px"},500);
+                    }		
 				}
 			);
-			}
+
+            //우클릭
+				 //$('.window').animate( { scrollTop : $(selector).offset().top }, 500 );
+
+			// selector요소가 있는 부분으로 window의 스크롤이 500ms 동안 이동한다. 스크롤의 맨 위 끝부분이 selector 요소가 있는 위치로 이동한다.
+            var m=0;
+            $("div#headerBottom .rightSlide li").click(
+             function(){
+                        m=$(this).attr("data-m");
+                       
+                        console.log(m);
+                        $(this).addClass("current");
+                        $(this).siblings().removeClass("current");
+                    	$("div#content ul li:eq(0)").delay(1000).fadeIn(100).css("position","relative").animate({"top":"0px"},700);
+						$("div#content ul li:eq(1)").delay(1100).fadeIn(100).css("position","relative").animate({"top":"0px"},600);
+						$("div#content ul li:eq(2)").delay(1200).fadeIn(100).css("position","relative").animate({"top":"0px"},500);
+                }
+            );
+
+
+		}
 	);
 	
     </script>
@@ -217,7 +252,7 @@
 
             </div>    
         </div>
-    </div>
+        </div>
         <!--타이틀 -->
         <div id="headerBottom">
             <div>
@@ -244,11 +279,11 @@
                 <!-- 오른쪽 고정 슬라이드-->
                 <div class="rightSlide">
                     <ul>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
+                        <li data-m ="1"><a href="#"></a></li>
+                        <li data-m ="2"><a href="#"></a></li>
+                        <li data-m ="3"><a href="#"></a></li>
+                        <li data-m ="4"><a href="#"></a></li>
+                        <li data-m ="5"><a href="#"></a></li>
                     </ul>
                 </div>  
                 <div class="bounce arrow">
@@ -400,18 +435,18 @@
                 <div>
                     <dl>
                         <dt>풀무원</dt>
-                            <dd><a href="#">뮤지엄김치간</a></dd>
-                            <dd><a href="#">로하스아카데미</a></dd>
-                            <dd><a href="#">원경선 기념관</a></dd>
-                            <dd><a href="#">풀무원샵</a></dd>
-                            <dd><a href="#">풀무원 소셜 웹진</a></dd>
-                            <dd><a href="#">풀무원채용</a></dd>
-                            <dd><a href="#">efresh 모니터</a></dd>
-                            <dd><a href="#">풀무원재단</a></dd>
-                            <dd><a href="#">풀무원지속경영</a></dd>
+                        <dd><a href="#">뮤지엄김치간</a></dd>
+                        <dd><a href="#">로하스아카데미</a></dd>
+                        <dd><a href="#">원경선 기념관</a></dd>
+                        <dd><a href="#">풀무원샵</a></dd>
+                        <dd><a href="#">풀무원 소셜 웹진</a></dd>
+                        <dd><a href="#">풀무원채용</a></dd>
+                        <dd><a href="#">efresh 모니터</a></dd>
+                        <dd><a href="#">풀무원재단</a></dd>
+                        <dd><a href="#">풀무원지속경영</a></dd>
                     </dl>
                     <dl>
-                    <dt>계열사</dt>
+                        <dt>계열사</dt>
                         <dd><a href="#">올가홀푸드</a></dd>
                         <dd><a href="#">엑소후레쉬</a></dd>
                         <dd><a href="#">푸드머스</a></dd>
@@ -420,7 +455,7 @@
                         <dd><a href="#">풀무원샘물</a></dd>
                         <dd><a href="#">풀무원푸드앤컬처</a></dd>
                         <dd><a href="#"> Pulmuone Foods USA</a></dd>
-                    </dl>
+                        </dl>
                     <dl>
                     <dt>브랜드</dt>
                         <dd><a href="#">베이비&키즈</a></dd>
